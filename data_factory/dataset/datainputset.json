@@ -1,0 +1,117 @@
+{
+	"name": "datainputset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
+				"container": "hosting"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "index",
+				"type": "String"
+			},
+			{
+				"name": "Order ID",
+				"type": "String"
+			},
+			{
+				"name": "Customer ID",
+				"type": "String"
+			},
+			{
+				"name": "Date",
+				"type": "String"
+			},
+			{
+				"name": "Status",
+				"type": "String"
+			},
+			{
+				"name": "Fulfilment",
+				"type": "String"
+			},
+			{
+				"name": "Sales Channel ",
+				"type": "String"
+			},
+			{
+				"name": "ship-service-level",
+				"type": "String"
+			},
+			{
+				"name": "Courier Status",
+				"type": "String"
+			},
+			{
+				"name": "Qty",
+				"type": "String"
+			},
+			{
+				"name": "currency",
+				"type": "String"
+			},
+			{
+				"name": "Amount",
+				"type": "String"
+			},
+			{
+				"name": "ship-city",
+				"type": "String"
+			},
+			{
+				"name": "ship-state",
+				"type": "String"
+			},
+			{
+				"name": "ship-postal-code",
+				"type": "String"
+			},
+			{
+				"name": "ship-country",
+				"type": "String"
+			},
+			{
+				"name": "promotion-ids",
+				"type": "String"
+			},
+			{
+				"name": "B2B",
+				"type": "String"
+			},
+			{
+				"name": "fulfilled-by",
+				"type": "String"
+			},
+			{
+				"name": "Payment",
+				"type": "String"
+			},
+			{
+				"name": "FK_Product ID2",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

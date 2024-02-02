@@ -1,0 +1,50 @@
+{
+	"name": "lookup_customer_and_product_list",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Landing_Zone_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "input_schema,input_table_name,outpu.txt",
+				"folderPath": "lookup",
+				"fileSystem": "supermarketdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "input_schema",
+				"type": "String"
+			},
+			{
+				"name": "input_table_name",
+				"type": "String"
+			},
+			{
+				"name": "output_directory",
+				"type": "String"
+			},
+			{
+				"name": "output_sql_to_file",
+				"type": "String"
+			},
+			{
+				"name": "s3_directory",
+				"type": "String"
+			},
+			{
+				"name": "s3_filename",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

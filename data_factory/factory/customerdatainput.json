@@ -1,0 +1,9 @@
+{
+	"name": "customerdatainput",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "010ce509-0451-40ce-920b-84b9581574a7",
+		"tenantId": "b272cc62-7859-433a-94ac-a1d1d8f79eee"
+	}
+}

@@ -1,0 +1,84 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "Landing_Zone_ADLS",
+						"type": "LinkedServiceReference"
+					},
+					"name": "CustomerData"
+				},
+				{
+					"linkedService": {
+						"referenceName": "Landing_Zone_ADLS",
+						"type": "LinkedServiceReference"
+					},
+					"name": "saleorderData"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "Final_Data",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sinkfinal1"
+				},
+				{
+					"linkedService": {
+						"referenceName": "Final_Data",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sinkfinal2"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delta',",
+				"     fileSystem: 'supermarketdata',",
+				"     folderPath: 'Final_Cleaned/Customer_Final') ~> CustomerData",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'delta',",
+				"     fileSystem: 'supermarketdata',",
+				"     folderPath: 'Final_Cleaned/Sales_Order_Final') ~> saleorderData",
+				"CustomerData sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'dbo',",
+				"     tableName: 'final_customer',",
+				"     insertable: true,",
+				"     updateable: false,",
+				"     deletable: false,",
+				"     upsertable: false,",
+				"     truncate: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     saveOrder: 1,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkfinal1",
+				"saleorderData sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'table',",
+				"     store: 'sqlserver',",
+				"     schemaName: 'dbo',",
+				"     tableName: 'sales_order',",
+				"     insertable: true,",
+				"     updateable: false,",
+				"     deletable: false,",
+				"     upsertable: false,",
+				"     truncate: true,",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkfinal2"
+			]
+		}
+	}
+}

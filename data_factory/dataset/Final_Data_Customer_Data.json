@@ -1,0 +1,41 @@
+{
+	"name": "Final_Data_Customer_Data",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Final_Data",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "ID",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "Birth_Year",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Education",
+				"type": "varchar"
+			},
+			{
+				"name": "Marital_status",
+				"type": "varchar"
+			},
+			{
+				"name": "Income",
+				"type": "float",
+				"precision": 15
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "final_customer"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
