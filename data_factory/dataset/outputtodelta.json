@@ -1,0 +1,23 @@
+{
+	"name": "outputtodelta",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Landing_Zone_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "outputdelta",
+				"fileSystem": "supermarketdata"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

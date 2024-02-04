@@ -1,0 +1,36 @@
+{
+	"name": "csvtodelta",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "for_trial",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "generated_dataset.csv",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Account_Key",
+				"type": "String"
+			},
+			{
+				"name": "Performance_Month",
+				"type": "String"
+			},
+			{
+				"name": "DPD",
+				"type": "String"
+			}
+		]
+	}
+}
